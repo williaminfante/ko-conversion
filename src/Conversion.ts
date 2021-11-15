@@ -15,7 +15,7 @@ export const centsToDollars = (centAmount: Amount): number => {
     return 0
   }
   
-export const centsToDollarsString = (centAmount: Amount): string => {
+export const centsToDollarsAsString = (centAmount: Amount): string => {
     // if null, NaN, boolean, or undefined -> return '0.00'
     const filteredCentAmount = centAmount || 0
     if (filteredCentAmount > 0 && filteredCentAmount !== true) {

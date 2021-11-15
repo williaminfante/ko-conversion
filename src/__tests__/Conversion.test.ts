@@ -1,4 +1,4 @@
-import { centsToDollars, centsToDollarsString, dollarsToCents } from '../Conversion';
+import { centsToDollars, centsToDollarsAsString, dollarsToCents } from '../Conversion';
 
 describe('centsToDollars()', () => {
   it.each([
@@ -26,7 +26,7 @@ describe('centsToDollars()', () => {
   })
 })
 
-describe('centsToDollarsString()', () => {
+describe('centsToDollarsAsString()', () => {
   it.each([
     { i: 1234, o: '12.34' },
     { i: 1200, o: '12.00' },
@@ -44,7 +44,7 @@ describe('centsToDollarsString()', () => {
     { i: 'abc', o: '0.00' },
     { i: null, o: '0.00' }
   ])(`returns correct centsToDollarsString(i) with %p`, ({ i, o }) => {
-    expect(centsToDollarsString(i)).toBe(o)
+    expect(centsToDollarsAsString(i)).toBe(o)
   })
 })
 
