@@ -1,6 +1,6 @@
 {
   "name": "@williaminfante/ko-conversion",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A list of utilities for converting amounts preventing rounding errors with javascript floats. This uses the `big.js` library.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
