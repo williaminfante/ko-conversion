@@ -1,3 +1,3 @@
-export { centsToDollars, centsToDollarsAsString, dollarsToCents } from './Conversion'
+export { centsToDollars, centsToDollarsAsString, decimalToPercent, dollarsToCents } from './Conversion'
 
 
