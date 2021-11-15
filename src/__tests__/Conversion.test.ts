@@ -1,4 +1,4 @@
-import { centsToDollars, centsToDollarsAsString, dollarsToCents } from '../Conversion';
+import { centsToDollars, centsToDollarsAsString, decimalToPercent, dollarsToCents } from '../Conversion';
 
 describe('centsToDollars()', () => {
   it.each([
@@ -72,11 +72,37 @@ describe('dollarsToCents()', () => {
   it('returned expected result compared to float providing a bad result', () => {
     expect(16.58 * 100).not.toEqual(1658)
     expect(dollarsToCents(16.58)).toEqual(1658)
-    expect((0.4 + 0.2) * 100).not.toEqual(60)
-    expect(dollarsToCents(0.4 + 0.2)).toEqual(60)
     expect(8.7 * 100).not.toEqual(870)
     expect(dollarsToCents(8.7)).toEqual(870)
-    expect((84.65 - 24.65) * 100).not.toEqual(6000)
-    expect(dollarsToCents(84.65 - 24.65)).toEqual(6000)
+  })
+})
+
+
+describe('decimalToPercent()', () => {
+  it.each([
+    { i: 0.001, o: 0.1 },
+    { i: 12.34, o: 1234 },
+    { i: 12, o: 1200 },
+    { i: 0, o: 0 },
+    { i: -2020, o: 0 },
+    { i: NaN, o: 0 },
+    { i: undefined, o: 0 },
+    { i: true, o: 0 },
+    { i: false, o: 0 },
+    { i: '54.32', o: 5432 },
+    { i: '', o: 0 },
+    { i: '   ', o: 0 },
+    { i: '-2020', o: 0 },
+    { i: '54', o: 5400 },
+    { i: 'abc', o: 0 },
+    { i: null, o: 0 },
+  ])(`returns correct decimalToPercent(i) with %p`, ({ i, o }) => {
+    expect(decimalToPercent(i)).toBe(o)
+  })
+  it('returned expected result compared to float providing a bad result', () => {
+    expect(0.58 * 100).not.toEqual(58)
+    expect(decimalToPercent(0.58)).toEqual(58)
+    expect(8.767 * 100).not.toEqual(876.7)
+    expect(decimalToPercent(8.767)).toEqual(876.7)
   })
 })

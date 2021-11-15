@@ -35,3 +35,11 @@ export const dollarsToCents = (dollarAmount: Amount): number => {
     return 0
   }
   
+export const decimalToPercent = (decimalAmount: Amount): number => {
+    // if null, NaN, boolean, or undefined -> return 0
+    const filteredDecimalAmount = decimalAmount || 0
+    if (filteredDecimalAmount > 0 && filteredDecimalAmount !== true) {
+      return Number(Big(filteredDecimalAmount).mul(100))
+    }
+    return 0
+  }
